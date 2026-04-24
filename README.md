@@ -64,10 +64,13 @@ All configuration is handled via environment variables. See [`.env.example`](.en
 | `MODEL_NAME` | Model identifier to use | `NousResearch/Hermes-3-Llama-3.1-8B` |
 | `MAX_ITERATIONS` | Maximum agentic loop iterations | `10` |
 | `TEMPERATURE` | Sampling temperature | `0.3` |
+| `REQUEST_TIMEOUT` | HTTP request timeout in seconds | `120` |
 
 > **Note:** I've updated `OPENAI_API_BASE` to default to `http://localhost:11434/v1` (Ollama's default port) since that's my primary local setup.
 
 > **Note:** Bumped `MAX_ITERATIONS` default from `5` to `10` — I found 5 was too often cutting off multi-step tasks before completion during local testing.
+
+> **Note:** Added `REQUEST_TIMEOUT` defaulting to `120s` — local models can be slow to respond, especially on first load, and the original 30s default was causing frequent timeout errors on my machine.
 
 ## Architecture
 
@@ -101,4 +104,4 @@ MIT License — see [LICENSE](LICENSE) for details.
 ## Acknowledgements
 
 - [NousResearch](https://nousresearch.com/) for the original hermes-agent and Hermes model series
-- The open-source AI community
+- The open-source
