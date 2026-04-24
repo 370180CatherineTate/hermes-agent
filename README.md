@@ -59,11 +59,13 @@ All configuration is handled via environment variables. See [`.env.example`](.en
 
 | Variable | Description | Default |
 |---|---|---|
-| `OPENAI_API_BASE` | Base URL for the OpenAI-compatible API | `http://localhost:8000/v1` |
+| `OPENAI_API_BASE` | Base URL for the OpenAI-compatible API | `http://localhost:11434/v1` |
 | `OPENAI_API_KEY` | API key for authentication | `sk-...` |
 | `MODEL_NAME` | Model identifier to use | `NousResearch/Hermes-3-Llama-3.1-8B` |
 | `MAX_ITERATIONS` | Maximum agentic loop iterations | `5` |
 | `TEMPERATURE` | Sampling temperature | `0.3` |
+
+> **Note:** I've updated `OPENAI_API_BASE` to default to `http://localhost:11434/v1` (Ollama's default port) since that's my primary local setup.
 
 ## Architecture
 
