@@ -66,6 +66,7 @@ All configuration is handled via environment variables. See [`.env.example`](.en
 | `TEMPERATURE` | Sampling temperature | `0.3` |
 | `REQUEST_TIMEOUT` | HTTP request timeout in seconds | `120` |
 | `LOG_LEVEL` | Logging verbosity (`DEBUG`, `INFO`, `WARNING`) | `INFO` |
+| `STREAM_OUTPUT` | Stream tokens to stdout as they are generated | `false` |
 
 > **Note:** I've updated `OPENAI_API_BASE` to default to `http://localhost:11434/v1` (Ollama's default port) since that's my primary local setup.
 
@@ -74,6 +75,8 @@ All configuration is handled via environment variables. See [`.env.example`](.en
 > **Note:** Added `REQUEST_TIMEOUT` defaulting to `120s` — local models can be slow to respond, especially on first load, and the original 30s default was causing frequent timeout errors on my machine.
 
 > **Note:** Added `LOG_LEVEL` — I set this to `DEBUG` locally when I'm actively debugging tool-call behavior, and `WARNING` when I just want to run things quietly.
+
+> **Note:** Added `STREAM_OUTPUT` — setting this to `true` makes responses feel much more responsive when running larger local models that have noticeable generation latency.
 
 ## Architecture
 
@@ -86,16 +89,5 @@ hermes-agent/
 │   └── prompts.py       # System prompts and templates
 ├── utils/
 │   ├── config.py        # Configuration management
-│   └── logging.py       # Logging utilities
-└── tests/
-    └── ...              # Test suite
+│   └── logging.py       # Logging util
 ```
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feat/my-feature`)
-3. Commit your changes
-4. Open a Pull Request
-
-Please use the issue template
