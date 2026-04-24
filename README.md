@@ -2,6 +2,8 @@
 
 A fork of [NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent) — an AI agent framework powered by Hermes models with tool-use and function-calling capabilities.
 
+> **Personal fork** — I'm using this to experiment with local LLM agents via [Ollama](https://ollama.com/) and [LM Studio](https://lmstudio.ai/).
+
 ## Features
 
 - 🤖 **Hermes Model Integration** — Optimized for NousResearch Hermes series models
@@ -60,8 +62,8 @@ All configuration is handled via environment variables. See [`.env.example`](.en
 | `OPENAI_API_BASE` | Base URL for the OpenAI-compatible API | `http://localhost:8000/v1` |
 | `OPENAI_API_KEY` | API key for authentication | `sk-...` |
 | `MODEL_NAME` | Model identifier to use | `NousResearch/Hermes-3-Llama-3.1-8B` |
-| `MAX_ITERATIONS` | Maximum agentic loop iterations | `10` |
-| `TEMPERATURE` | Sampling temperature | `0.7` |
+| `MAX_ITERATIONS` | Maximum agentic loop iterations | `5` |
+| `TEMPERATURE` | Sampling temperature | `0.3` |
 
 ## Architecture
 
