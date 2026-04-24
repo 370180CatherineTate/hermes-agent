@@ -65,12 +65,15 @@ All configuration is handled via environment variables. See [`.env.example`](.en
 | `MAX_ITERATIONS` | Maximum agentic loop iterations | `10` |
 | `TEMPERATURE` | Sampling temperature | `0.3` |
 | `REQUEST_TIMEOUT` | HTTP request timeout in seconds | `120` |
+| `LOG_LEVEL` | Logging verbosity (`DEBUG`, `INFO`, `WARNING`) | `INFO` |
 
 > **Note:** I've updated `OPENAI_API_BASE` to default to `http://localhost:11434/v1` (Ollama's default port) since that's my primary local setup.
 
 > **Note:** Bumped `MAX_ITERATIONS` default from `5` to `10` — I found 5 was too often cutting off multi-step tasks before completion during local testing.
 
 > **Note:** Added `REQUEST_TIMEOUT` defaulting to `120s` — local models can be slow to respond, especially on first load, and the original 30s default was causing frequent timeout errors on my machine.
+
+> **Note:** Added `LOG_LEVEL` — I set this to `DEBUG` locally when I'm actively debugging tool-call behavior, and `WARNING` when I just want to run things quietly.
 
 ## Architecture
 
@@ -95,13 +98,4 @@ hermes-agent/
 3. Commit your changes
 4. Open a Pull Request
 
-Please use the issue templates in `.github/ISSUE_TEMPLATE/` to report bugs or request features.
-
-## License
-
-MIT License — see [LICENSE](LICENSE) for details.
-
-## Acknowledgements
-
-- [NousResearch](https://nousresearch.com/) for the original hermes-agent and Hermes model series
-- The open-source
+Please use the issue template
