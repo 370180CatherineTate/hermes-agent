@@ -67,6 +67,7 @@ All configuration is handled via environment variables. See [`.env.example`](.en
 | `REQUEST_TIMEOUT` | HTTP request timeout in seconds | `120` |
 | `LOG_LEVEL` | Logging verbosity (`DEBUG`, `INFO`, `WARNING`) | `INFO` |
 | `STREAM_OUTPUT` | Stream tokens to stdout as they are generated | `false` |
+| `MAX_TOKENS` | Maximum tokens to generate per response | `2048` |
 
 > **Note:** I've updated `OPENAI_API_BASE` to default to `http://localhost:11434/v1` (Ollama's default port) since that's my primary local setup.
 
@@ -78,16 +79,13 @@ All configuration is handled via environment variables. See [`.env.example`](.en
 
 > **Note:** Added `STREAM_OUTPUT` — setting this to `true` makes responses feel much more responsive when running larger local models that have noticeable generation latency.
 
+> **Note:** Added `MAX_TOKENS` defaulting to `2048` — useful to cap runaway generation on longer agentic tasks; bump this up if you're seeing responses get cut off mid-thought.
+
 ## Architecture
 
 ```
 hermes-agent/
 ├── main.py              # Entry point
 ├── agent/
-│   ├── core.py          # Core agent loop
-│   ├── tools.py         # Tool definitions and registry
-│   └── prompts.py       # System prompts and templates
-├── utils/
-│   ├── config.py        # Configuration management
-│   └── logging.py       # Logging util
+│   
 ```
