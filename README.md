@@ -68,6 +68,7 @@ All configuration is handled via environment variables. See [`.env.example`](.en
 | `LOG_LEVEL` | Logging verbosity (`DEBUG`, `INFO`, `WARNING`) | `INFO` |
 | `STREAM_OUTPUT` | Stream tokens to stdout as they are generated | `false` |
 | `MAX_TOKENS` | Maximum tokens to generate per response | `2048` |
+| `SYSTEM_PROMPT_FILE` | Path to a file containing a custom system prompt | *(unset)* |
 
 > **Note:** I've updated `OPENAI_API_BASE` to default to `http://localhost:11434/v1` (Ollama's default port) since that's my primary local setup.
 
@@ -79,13 +80,4 @@ All configuration is handled via environment variables. See [`.env.example`](.en
 
 > **Note:** Added `STREAM_OUTPUT` — setting this to `true` makes responses feel much more responsive when running larger local models that have noticeable generation latency.
 
-> **Note:** Added `MAX_TOKENS` defaulting to `2048` — useful to cap runaway generation on longer agentic tasks; bump this up if you're seeing responses get cut off mid-thought.
-
-## Architecture
-
-```
-hermes-agent/
-├── main.py              # Entry point
-├── agent/
-│   
-```
+> **Note:** Added `SYSTEM_PROMPT_FILE` — lets me point the agent at a plain text file containing a custom system prompt without touching the source code. Handy for quickly swapping personas or task-specific instructions between experiments.
