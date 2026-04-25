@@ -78,6 +78,6 @@ All configuration is handled via environment variables. See [`.env.example`](.en
 
 > **Note:** Added `LOG_LEVEL` — I set this to `DEBUG` locally when I'm actively debugging tool-call behavior, and `WARNING` when I just want to run things quietly.
 
-> **Note:** Added `STREAM_OUTPUT` — setting this to `true` makes responses feel much more responsive when running larger local models that have noticeable generation latency.
+> **Note:** Added `STREAM_OUTPUT` — setting this to `true` makes responses feel much more responsive when run interactively. Defaults to `false` to keep log output clean when running non-interactively or in Docker.
 
-> **Note:** Added `SYSTEM_PROMPT_FILE` — lets me point the agent at a plain text file containing a custom system prompt without touching the source code. Handy for quickly swapping personas or task-specific instructions between experiments.
+> **Note:** Bumped `MAX_TOKENS` default from `1024` to `2048` — some tool responses and multi-step reasoning chains were getting truncated mid-output at 1024, particularly when the model was summarizing long tool results.
